@@ -22,14 +22,14 @@ export function SiteNav() {
   }, [])
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-border bg-background/80 backdrop-blur-md'
-          : 'border-b border-transparent'
-      }`}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
+      <nav
+        className={`flex w-full max-w-6xl items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
+          scrolled
+            ? 'border border-border bg-background/80 shadow-[0_8px_30px_rgb(0,0,0,0.25)] backdrop-blur-md'
+            : 'border border-transparent bg-transparent'
+        }`}
+      >
         <a
           href="#top"
           className="font-display text-lg font-extrabold tracking-tight"
@@ -78,20 +78,22 @@ export function SiteNav() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background md:hidden">
-          <ul className="flex flex-col px-6 py-4">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-base text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <div className="fixed inset-x-0 top-20 z-40 px-4 md:hidden">
+          <div className="mx-auto max-w-6xl rounded-2xl border border-border bg-background/95 shadow-[0_8px_30px_rgb(0,0,0,0.25)] backdrop-blur-md">
+            <ul className="flex flex-col px-6 py-4">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block py-3 text-base text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </header>
