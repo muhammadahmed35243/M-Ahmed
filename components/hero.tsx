@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto flex min-h-svh max-w-6xl flex-col justify-center px-6 pb-16 pt-32"
+      className="relative mx-auto flex min-h-svh max-w-6xl flex-col justify-center px-6 pb-16 pt-20"
     >
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <span className="relative flex h-2 w-2">
