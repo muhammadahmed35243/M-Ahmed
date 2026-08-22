@@ -1,4 +1,5 @@
 import { profile } from '@/lib/data'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export function SiteFooter() {
   return (
@@ -7,9 +8,12 @@ export function SiteFooter() {
         <span>
           © {new Date().getFullYear()} {profile.name}. Islamabad, Pakistan.
         </span>
-        <span className="font-display font-bold tracking-tight text-foreground">
-          Applied AI Engineer
-        </span>
+        <div className="flex w-full items-center justify-between gap-4 md:w-auto">
+          <span className="font-display font-bold tracking-tight text-foreground">
+            Applied AI Engineer
+          </span>
+          <ThemeToggle />
+        </div>
       </div>
     </footer>
   )
