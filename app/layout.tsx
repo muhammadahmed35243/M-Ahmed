@@ -1,7 +1,12 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Syne } from 'next/font/google'
+import { profile } from '@/lib/data'
 import './globals.css'
+
+const siteUrl = 'https://mahmed.thejetzt.com'
+const title = `${profile.name} | ${profile.title}`
+const description = `${profile.title} building agentic systems, LLM applications, voice AI, fine-tuned models, and production automation. Portfolio of ${profile.name}, ${profile.location}.`
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,15 +22,34 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
-  title: 'Muhammad Ahmed — Applied AI Engineer',
-  description:
-    'Applied AI Engineer building LLM applications, multi-agent systems, and RAG pipelines. Portfolio of Muhammad Ahmed, Islamabad, Pakistan.',
-  generator: 'v0.app',
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+    },
+  },
   openGraph: {
-    title: 'Muhammad Ahmed — Applied AI Engineer',
-    description:
-      'LLM applications, multi-agent systems, RAG pipelines, and AI automation.',
+    title,
+    description,
+    url: siteUrl,
+    siteName: profile.name,
     type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: ['/opengraph-image'],
   },
 }
 
@@ -42,6 +66,25 @@ const themeInitScript = `
   } catch (e) {}
 `
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.title,
+  url: siteUrl,
+  image: `${siteUrl}/muhammad-ahmed.png`,
+  email: `mailto:${profile.email}`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: profile.location,
+  },
+  sameAs: [profile.github, profile.linkedin],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'JETZT Pvt Ltd',
+  },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,6 +98,10 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body className="font-sans antialiased">
         {children}

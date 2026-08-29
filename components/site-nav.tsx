@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 import { profile } from '@/lib/data'
 
 const links = [
-  { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
+  { href: '#work', label: 'Work' },
   { href: '#contact', label: 'Contact' },
 ]
 

@@ -17,8 +17,8 @@ export default function Page() {
         <Hero />
         <Marquee />
         <About />
-        <Projects />
         <Experience />
+        <Projects />
         <Contact />
       </main>
       <SiteFooter />

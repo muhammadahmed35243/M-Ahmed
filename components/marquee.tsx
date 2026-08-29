@@ -1,11 +1,11 @@
 const words = [
-  'LLM Applications',
+  'Agentic AI',
+  'Voice Systems',
+  'LLM Fine-Tuning',
+  'Workflow Automation',
   'Multi-Agent Systems',
   'RAG Pipelines',
-  'AI Automation',
   'LangGraph',
-  'Fine-Tuning',
-  'Computer Vision',
   'Vector Search',
 ]
 

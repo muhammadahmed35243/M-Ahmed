@@ -10,7 +10,7 @@ export function SiteFooter() {
         </span>
         <div className="flex w-full items-center justify-between gap-4 md:w-auto">
           <span className="font-display font-bold tracking-tight text-foreground">
-            Applied AI Engineer
+            {profile.tagline}
           </span>
           <ThemeToggle />
         </div>

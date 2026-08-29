@@ -1,4 +1,4 @@
-import { stats, skillGroups } from '@/lib/data'
+import { stats, skillGroups, profile } from '@/lib/data'
 import { Reveal } from '@/components/reveal'
 
 export function About() {
@@ -13,7 +13,7 @@ export function About() {
         </p>
       </Reveal>
 
-      <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-4">
+      <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 60} className="bg-card p-6">
             <div className="font-display text-3xl font-extrabold tracking-tight md:text-4xl">
@@ -43,6 +43,10 @@ export function About() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={skillGroups.length * 60} className="mt-10 text-sm text-muted-foreground">
+        {profile.education}
+      </Reveal>
     </section>
   )
 }

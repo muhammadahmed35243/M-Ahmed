@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin } from 'lucide-react'
 import { profile } from '@/lib/data'
 import { Reveal } from '@/components/reveal'
 
@@ -33,12 +33,6 @@ export function Contact() {
               className="inline-flex items-center gap-3 transition-colors hover:text-foreground"
             >
               <Mail className="h-4 w-4" /> {profile.email}
-            </a>
-            <a
-              href={`tel:${profile.phone.replace(/[^+\d]/g, '')}`}
-              className="inline-flex items-center gap-3 transition-colors hover:text-foreground"
-            >
-              <Phone className="h-4 w-4" /> {profile.phone}
             </a>
             <span className="inline-flex items-center gap-3">
               <MapPin className="h-4 w-4" /> {profile.location}
