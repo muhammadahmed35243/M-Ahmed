@@ -54,14 +54,14 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#171717',
+  colorScheme: 'light',
+  themeColor: '#f7f7f7',
 }
 
 const themeInitScript = `
   try {
     var stored = localStorage.getItem('theme');
-    var theme = stored === 'light' ? 'light' : 'dark';
+    var theme = stored === 'dark' ? 'dark' : 'light';
     document.documentElement.classList.toggle('dark', theme === 'dark');
   } catch (e) {}
 `
@@ -93,7 +93,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${syne.variable} bg-background`}
+      className={`${inter.variable} ${syne.variable} bg-background`}
       suppressHydrationWarning
     >
       <head>
